@@ -1490,6 +1490,11 @@ async function startWatcher(opts: SetupOpts) {
               )
 
               changeSubscription(page, route.rscEndpoint, (_page, change) => {
+                if (change.issues.some((issue) => issue.severity === 'error')) {
+                  // Ignore any updates that has errors
+                  // There will be another update without errors eventually
+                  return
+                }
                 switch (change.type) {
                   case ServerClientChangeType.Server:
                   case ServerClientChangeType.Both:
