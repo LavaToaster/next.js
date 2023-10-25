@@ -561,6 +561,7 @@ export class IncrementalCache {
       // revalidateAfter values so we update this on set
       if (typeof ctx.revalidate !== 'undefined' && !ctx.fetchCache) {
         this.prerenderManifest.routes[pathname] = {
+          experimentalPPR: undefined,
           dataRoute: path.posix.join(
             '/_next/data',
             `${normalizePagePath(pathname)}.json`
