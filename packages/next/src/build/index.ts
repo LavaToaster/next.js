@@ -28,6 +28,7 @@ import {
   MIDDLEWARE_FILENAME,
   PAGES_DIR_ALIAS,
   INSTRUMENTATION_HOOK_FILENAME,
+  NEXT_DID_POSTPONE_HEADER,
 } from '../lib/constants'
 import { FileType, fileExists } from '../lib/file-exists'
 import { findPagesDir } from '../lib/find-pages-dir'
@@ -248,6 +249,7 @@ export type RoutesManifest = {
   }
   rsc: {
     header: typeof RSC
+    didPostponeHeader: typeof NEXT_DID_POSTPONE_HEADER
     varyHeader: typeof RSC_VARY_HEADER
     prefetchHeader: typeof NEXT_ROUTER_PREFETCH
   }
@@ -827,6 +829,7 @@ export default async function build(
               header: RSC,
               varyHeader: RSC_VARY_HEADER,
               prefetchHeader: NEXT_ROUTER_PREFETCH,
+              didPostponeHeader: NEXT_DID_POSTPONE_HEADER,
               contentTypeHeader: RSC_CONTENT_TYPE_HEADER,
             },
             skipMiddlewareUrlNormalize: config.skipMiddlewareUrlNormalize,
