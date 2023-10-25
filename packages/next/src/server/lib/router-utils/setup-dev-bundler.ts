@@ -1220,6 +1220,7 @@ async function startWatcher(opts: SetupOpts) {
               case 'client-reload-page': // { clientId }
               case 'client-removed-page': // { page }
               case 'client-full-reload': // { stackTrace, hadRuntimeError }
+              case 'client-added-page': // { stackTrace, hadRuntimeError }
                 // TODO
                 break
 
