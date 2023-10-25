@@ -483,14 +483,10 @@ async function startWatcher(opts: SetupOpts) {
       }
 
       hotReloader.send({
-        action: HMR_ACTIONS_SENT_TO_BROWSER.SYNC,
+        action: HMR_ACTIONS_SENT_TO_BROWSER.BUILT,
         hash: String(++hmrHash),
         errors: [...errors.values()],
         warnings: [],
-        versionInfo: {
-          installed: '0.0.0',
-          staleness: 'unknown',
-        },
       })
       hmrBuilding = false
 
